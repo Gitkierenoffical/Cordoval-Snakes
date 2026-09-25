@@ -1,0 +1,384 @@
+:root {
+  --accent: #16a34a;
+  --accent-dark: #15803d;
+  --accent-soft: #dcfce7;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --danger: #b91c1c;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgb(15 23 42 / 8%);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+.app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.brand-icon {
+  border-radius: 10px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.brand-tagline {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.banner {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+}
+
+.banner--warn {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #78350f;
+}
+
+.banner p {
+  margin: 0;
+  flex: 1;
+}
+
+.banner-dismiss {
+  border: none;
+  background: transparent;
+  color: var(--accent-dark);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.score-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow);
+}
+
+.score-card--best {
+  border-color: var(--accent-soft);
+  background: linear-gradient(180deg, #f0fdf4 0%, var(--surface) 100%);
+}
+
+.score-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.score-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.play-area {
+  touch-action: none;
+}
+
+.game-board {
+  position: relative;
+  display: grid;
+  gap: 1px;
+  background: var(--border);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+.game-board--over {
+  filter: saturate(0.85);
+}
+
+.cell {
+  background: #f1f5f9;
+}
+
+.cell-head {
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.cell-body {
+  background: #4ade80;
+}
+
+.cell-food {
+  background: #ef4444;
+  border-radius: 50%;
+  transform: scale(0.65);
+}
+
+.game-over-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(15 23 42 / 45%);
+}
+
+.game-over-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+}
+
+.control-bar {
+  text-align: center;
+}
+
+.hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.button-row--centre {
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  color: var(--accent-dark);
+}
+
+.dpad {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.dpad-row {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: center;
+}
+
+.dpad-row--middle {
+  align-items: center;
+}
+
+.dpad-centre {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.dpad-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent-dark);
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.dpad-btn:active:not(:disabled) {
+  background: var(--accent-soft);
+}
+
+@media (max-width: 768px), (hover: none) {
+  .dpad {
+    display: flex;
+  }
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.panel-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--accent-dark);
+}
+
+.panel-lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.notice {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+}
+
+.notice--ok {
+  color: var(--accent-dark);
+}
+
+.notice--error {
+  color: var(--danger);
+}
+
+.site-footer {
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+}
+
+.footer-nav a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-sep {
+  margin: 0 0.35rem;
+}
+
+.footer-brand a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-brand a:hover {
+  color: var(--accent-dark);
+}
