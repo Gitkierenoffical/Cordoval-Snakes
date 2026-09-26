@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <p>
-        Cordoval Snakes keeps your high score on this device only. No accounts, no ads.
+        Cordoval Snakes keeps your high score on this device only. No accounts, no third-party ads.
       </p>
       <nav className="footer-nav" aria-label="Legal">
         <a href="https://scrub.cordoval.co.uk/terms" rel="noopener noreferrer">
