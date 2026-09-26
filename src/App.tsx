@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { BackupPanel } from './components/BackupPanel'
 import { DPad } from './components/DPad'
+import { BuildHouseDailyAd } from './components/BuildHouseDailyAd'
 import { Footer } from './components/Footer'
 import { GameBoard } from './components/GameBoard'
 import { Header } from './components/Header'
@@ -188,6 +189,7 @@ function App() {
 
         <BackupPanel onRestored={() => void reload()} />
       </main>
+      <BuildHouseDailyAd />
       <Footer />
     </div>
   )
